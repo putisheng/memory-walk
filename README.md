@@ -38,9 +38,33 @@ npm run build
 npm run preview
 ```
 
-## 在线体验
+## 部署到 GitHub Pages
 
-[https://你的用户名.github.io/memory-walk](https://你的用户名.github.io/memory-walk)
+### 方法一：使用 GitHub Actions（推荐，自动部署）
+
+1. 在 GitHub 上新建一个仓库（例如 `memory-walk`）
+2. 将项目代码推送到 GitHub：
+
+```bash
+git remote add origin https://github.com/你的用户名/memory-walk.git
+git branch -M main
+git push -u origin main
+```
+
+3. 在 GitHub 仓库页面，点击 **Settings** → **Pages**
+4. 在 **Source** 中选择 **GitHub Actions**
+5. 项目自带的 `.github/workflows/deploy.yml` 会自动构建并部署
+6. 等待几分钟，访问 `https://你的用户名.github.io/memory-walk/` 即可
+
+### 方法二：手动部署（无需 Actions）
+
+1. 在 GitHub 新建仓库，推送代码
+2. 仓库 Settings → Pages
+3. Source 选择 **Deploy from a branch**
+4. Branch 选择 `gh-pages` / `/root`
+5. 或者本地构建后手动上传 `dist/` 文件夹内容
+
+> **注意**: 数据存储在浏览器 localStorage 中，每个人打开看到的都是自己添加的内容，别人看不到你的数据。
 
 ## License
 
