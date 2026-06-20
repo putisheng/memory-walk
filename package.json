@@ -1,0 +1,17 @@
+{
+  "name": "memory-walk",
+  "version": "1.0.0",
+  "description": "回忆长廊 - 一个记录生活记忆的时间线博物馆",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^8.0.16"
+  }
+}

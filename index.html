@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>回忆长廊 - Memory Walk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">📷 回忆长廊</h1>
+      <button class="btn btn-primary" id="btn-add-memory">+ 记录此刻</button>
+    </div>
+  </header>
+
+  <!-- Timeline -->
+  <main class="timeline" id="timeline">
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">📖</div>
+      <h2>还没有记忆</h2>
+      <p>点击右上角「记录此刻」，开始书写你的故事</p>
+    </div>
+  </main>
+
+  <!-- Memory Form Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 class="modal-title" id="modal-title">记录此刻</h2>
+      <form id="memory-form">
+        <input type="hidden" id="edit-id" />
+
+        <div class="form-group">
+          <label class="form-label">照片</label>
+          <div class="photo-upload" id="photo-upload">
+            <div class="photo-preview" id="photo-preview">
+              <img id="preview-img" src="" alt="预览" />
+            </div>
+            <div class="photo-placeholder" id="photo-placeholder">
+              <span class="upload-icon">📸</span>
+              <span>点击上传照片</span>
+            </div>
+            <input type="file" id="photo-input" accept="image/*" hidden />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="memory-date">日期</label>
+          <input type="date" id="memory-date" class="form-input" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="memory-title">标题</label>
+          <input type="text" id="memory-title" class="form-input" placeholder="给这段记忆取个名字..." maxlength="50" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">心情</label>
+          <div class="mood-selector" id="mood-selector">
+            <button type="button" class="mood-btn" data-mood="happy" title="开心">😊</button>
+            <button type="button" class="mood-btn" data-mood="calm" title="平静">😌</button>
+            <button type="button" class="mood-btn" data-mood="sad" title="难过">😢</button>
+            <button type="button" class="mood-btn" data-mood="angry" title="生气">😤</button>
+            <button type="button" class="mood-btn" data-mood="surprised" title="惊喜">😮</button>
+            <button type="button" class="mood-btn" data-mood="loved" title="心动">🥰</button>
+          </div>
+          <input type="hidden" id="memory-mood" value="happy" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="memory-content">日记</label>
+          <textarea id="memory-content" class="form-input form-textarea" placeholder="写点什么吧..." maxlength="500"></textarea>
+          <span class="char-count"><span id="char-count">0</span>/500</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="btn-cancel">取消</button>
+          <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Memory Detail Modal -->
+  <div class="modal-overlay" id="detail-overlay">
+    <div class="modal modal-detail" id="detail-modal">
+      <button class="modal-close" id="detail-close">&times;</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>回忆长廊 &copy; 2026 &middot; 用记忆温暖时光</p>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
